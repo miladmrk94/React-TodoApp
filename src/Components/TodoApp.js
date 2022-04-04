@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import FilterTodo from "./FilterTodo";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
+  const [status, setStatus] = useState("All");
+  const [filterStatus, setFilterStatus] = useState([]);
 
+  useEffect(() => {
+    filterTodos(status);
+  }, [todos, status]);
   const addTodoHandler = (input) => {
     console.log(input);
     const newTodo = {
@@ -44,12 +50,37 @@ const TodoApp = () => {
     setTodos(allTodos);
   };
 
+  const filterTodos = (status) => {
+    if (status === "All") {
+      return setFilterStatus(todos);
+    } else if (status === "completed") {
+      const filter = todos.filter((i) => {
+        return i.isCompleted === true;
+      });
+      setFilterStatus(filter);
+    } else {
+      const filter = todos.filter((i) => {
+        return i.isCompleted === false;
+      });
+      setFilterStatus(filter);
+    }
+  };
+  const selectHandler = (e) => {
+    setStatus(e.target.value);
+    filterTodos(e.target.value);
+  };
+
   return (
     <div>
       ToDo App
+      <FilterTodo
+        item={todos.filter((i) => !i.isCompleted).length}
+        selectHandler={selectHandler}
+        status={status}
+      />
       <TodoForm addTodoHandler={addTodoHandler} />
       <TodoList
-        todos={todos}
+        todos={filterStatus}
         onComplete={onComplete}
         onDelete={onDelete}
         updateTodo={updateTodo}
