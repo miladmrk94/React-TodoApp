@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/React-TodoApp/static/css/main.483375e9.css",
+    "main.css": "/React-TodoApp/static/css/main.9fc6304d.css",
     "main.js": "/React-TodoApp/static/js/main.b75e4a0c.js",
     "static/media/cartographer.png": "/React-TodoApp/static/media/cartographer.d60d81659f908a127aef.png",
     "index.html": "/React-TodoApp/index.html",
-    "main.483375e9.css.map": "/React-TodoApp/static/css/main.483375e9.css.map",
+    "main.9fc6304d.css.map": "/React-TodoApp/static/css/main.9fc6304d.css.map",
     "main.b75e4a0c.js.map": "/React-TodoApp/static/js/main.b75e4a0c.js.map"
   },
   "entrypoints": [
-    "static/css/main.483375e9.css",
+    "static/css/main.9fc6304d.css",
     "static/js/main.b75e4a0c.js"
   ]
 }
