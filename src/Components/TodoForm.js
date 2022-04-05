@@ -1,4 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
+import styles from "./TodoForm.module.scss";
+import { HiPlusCircle, HiOutlinePencilAlt } from "react-icons/hi";
+
 const TodoForm = (props) => {
   const [todo, setTodo] = useState("");
   const selectInput = useRef();
@@ -26,21 +29,31 @@ const TodoForm = (props) => {
     <div>
       {props.edit ? (
         <>
-          <form onSubmit={submitHandler}>
+          <form onSubmit={submitHandler} className={styles.input}>
             <input
               type="text"
               value={todo}
               onChange={changeHandler}
               ref={selectInput}
+              className={styles.form__field}
             />
-            <button type="submit">Update</button>
+            <button className={styles.addBtn}>
+              <HiOutlinePencilAlt type="submit" size="30px" color="#38ef7d" />
+            </button>
           </form>
         </>
       ) : (
         <>
-          <form onSubmit={submitHandler}>
-            <input type="text" value={todo} onChange={changeHandler} />
-            <button type="submit">Add</button>
+          <form onSubmit={submitHandler} className={styles.input}>
+            <input
+              type="text"
+              value={todo}
+              onChange={changeHandler}
+              className={styles.form__field}
+            />
+            <button className={styles.addBtn}>
+              <HiPlusCircle type="submit" size="30px" color="#38ef7d" />
+            </button>
           </form>
         </>
       )}

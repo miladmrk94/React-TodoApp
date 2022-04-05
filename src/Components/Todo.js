@@ -1,11 +1,19 @@
 import React from "react";
 import styles from "./Todo.module.scss";
 import { motion } from "framer-motion";
+import { HiXCircle, HiOutlinePencilAlt, HiCheckCircle } from "react-icons/hi";
 
-const Todo = ({ text, onComplete, onEdit, textClassName, onDelete }) => {
+const Todo = ({
+  text,
+  onComplete,
+  onEdit,
+  textClassName,
+  onDelete,
+  completedColor,
+  onClick,
+}) => {
   return (
     <motion.div
-      className={styles.box}
       animate={{
         x: 0,
         y: 30,
@@ -20,20 +28,24 @@ const Todo = ({ text, onComplete, onEdit, textClassName, onDelete }) => {
         scale: 1,
         rotate: 0,
       }}
+      onClick={onClick}
+      className={styles.box}
     >
-      <motion.button
-        initial={{ x: "5%" }}
-        animate={{ x: "calc(20vw - 80%)" }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 1 }}
-        style={{ originX: 0.5 }}
-        onClick={onComplete}
-      >
-        Complete
-      </motion.button>
+      <div className={styles.BTNs}>
+        <HiXCircle onClick={onDelete} size="30px" color=" rgb(240, 74, 74)" />
+
+        <HiCheckCircle
+          onClick={onComplete}
+          size="30px"
+          color={completedColor}
+        />
+        <HiOutlinePencilAlt
+          onClick={onEdit}
+          size="25px"
+          color=" rgb(255, 238, 2)"
+        />
+      </div>
       <h4 className={textClassName}>{text}</h4>
-      <button onClick={onEdit}>Edit</button>
-      <button onClick={onDelete}>Delete</button>
     </motion.div>
   );
 };

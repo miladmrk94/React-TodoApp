@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import FilterTodo from "./FilterTodo";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
+import styles from "./TodoApp.module.scss";
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("All");
@@ -71,8 +72,7 @@ const TodoApp = () => {
   };
 
   return (
-    <div>
-      ToDo App
+    <div className={styles.box}>
       <FilterTodo
         item={todos.filter((i) => !i.isCompleted).length}
         selectHandler={selectHandler}
