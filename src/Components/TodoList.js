@@ -14,7 +14,7 @@ const TodoList = ({ todos, onComplete, onDelete, onEdit, updateTodo }) => {
     return <h3>Add Some Todo</h3>;
   }
   return (
-    <div>
+    <div className={styles.box}>
       {edit.id ? (
         <TodoForm addTodoHandler={editTodo} edit={edit} />
       ) : (

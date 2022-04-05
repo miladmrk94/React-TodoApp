@@ -11,6 +11,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  min-width: 250px;
+  max-width: 500px;
   .BTNs{
     width: 24%;
     display: flex;
