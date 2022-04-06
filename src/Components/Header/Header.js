@@ -5,9 +5,7 @@ const Header = () => {
   const [time, setTime] = useState();
 
   const timeHandler = () => {
-    setInterval(() => {
-      setTime(moment().format("h:mm:ss a"));
-    }, 1000);
+    setTime(moment().format("dddd"));
   };
 
   useEffect(() => {

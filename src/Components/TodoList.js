@@ -4,7 +4,7 @@ import TodoForm from "./TodoForm";
 import styles from "./TodoList.module.scss";
 import { motion } from "framer-motion";
 
-const TodoList = ({ todos, onComplete, onDelete, onEdit, updateTodo }) => {
+const TodoList = ({ todos, onComplete, onDelete, updateTodo }) => {
   const [edit, setEdit] = useState({ id: null, text: "", isCompleted: false });
   const editTodo = (newValue) => {
     updateTodo(edit.id, newValue);
@@ -13,6 +13,9 @@ const TodoList = ({ todos, onComplete, onDelete, onEdit, updateTodo }) => {
   if (todos.length === 0) {
     return <h3>Add Some Todo</h3>;
   }
+  const timeHandler = (date) => {
+    return `${date.format("h:mm:ss a")}`;
+  };
   return (
     <div className={styles.box}>
       {edit.id ? (
@@ -20,7 +23,7 @@ const TodoList = ({ todos, onComplete, onDelete, onEdit, updateTodo }) => {
       ) : (
         todos.map((item) => {
           return (
-            <motion.div>
+            <motion.div key={item.id}>
               <Todo
                 layoutId={item.id}
                 textClassName={
@@ -31,6 +34,7 @@ const TodoList = ({ todos, onComplete, onDelete, onEdit, updateTodo }) => {
                 }
                 key={item.id}
                 text={item.text}
+                time={`${timeHandler(item.date)}`}
                 onComplete={() => onComplete(item.id)}
                 onDelete={() => onDelete(item.id)}
                 onEdit={() => setEdit(item)}

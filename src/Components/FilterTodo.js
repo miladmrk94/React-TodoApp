@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./FilterTodo.module.scss";
+
 const FilterTodo = ({ item, selectHandler, status }) => {
   return (
     <div>
@@ -12,6 +13,9 @@ const FilterTodo = ({ item, selectHandler, status }) => {
         <option value="All">All</option>
         <option value="completed">Completed</option>
         <option value="uncompleted">Uncompleted</option>
+        <option value="sort" style={{ color: "red" }}>
+          Last Edition
+        </option>
       </select>
     </div>
   );

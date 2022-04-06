@@ -11,6 +11,7 @@ const Todo = ({
   onDelete,
   completedColor,
   onClick,
+  time,
 }) => {
   return (
     <motion.div
@@ -31,20 +32,24 @@ const Todo = ({
       onClick={onClick}
       className={styles.box}
     >
-      <div className={styles.BTNs}>
-        <HiXCircle onClick={onDelete} size="30px" color=" rgb(240, 74, 74)" />
+      <div className={styles.boxOne}>
+        <div className={styles.BTNs}>
+          <HiXCircle onClick={onDelete} size="30px" color=" rgb(240, 74, 74)" />
 
-        <HiCheckCircle
-          onClick={onComplete}
-          size="30px"
-          color={completedColor}
-        />
-        <HiOutlinePencilAlt
-          onClick={onEdit}
-          size="25px"
-          color=" rgb(255, 238, 2)"
-        />
+          <HiCheckCircle
+            onClick={onComplete}
+            size="30px"
+            color={completedColor}
+          />
+          <HiOutlinePencilAlt
+            onClick={onEdit}
+            size="25px"
+            color=" rgb(255, 238, 2)"
+          />
+        </div>
+        <span>{time}</span>
       </div>
+
       <h4 className={textClassName}>{text}</h4>
     </motion.div>
   );

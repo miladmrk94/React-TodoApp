@@ -13,11 +13,23 @@
   align-items: center;
   min-width: 250px;
   max-width: 500px;
-  .BTNs{
-    width: 24%;
+  .boxOne{
+    width: 60%;
     display: flex;
-  justify-content: space-between;
-  align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    .BTNs{
+      display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+  span{
+    font-size: 14px;
+    color: rgb(139, 139, 139);
+    margin-left: 0.5rem;
+  }
   }
 
 
