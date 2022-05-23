@@ -1,4 +1,4 @@
-# React Shop
+# React (TodoApp)
 
 [miladmrk94.github.io/React-TodoApp](https://miladmrk94.github.io/React-TodoApp/)
 
